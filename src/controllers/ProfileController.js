@@ -49,7 +49,7 @@ exports.SelectProfile=(req,res)=> {
     ProfileModel.find({UserName:UserName}).then((data) => {
             res.status(201).json({status: "Success", data: data[0]});
     }).catch((err) => {
-        res.status(400).json({status: "fail", data: "err"});
+        res.status(400).json({status: "fail", data: err});
     })
 }
 

@@ -32,7 +32,7 @@ exports.SelectToDo=(req,res)=>{
     ToDoListModel.find({UserName:UserName}).then((data) => {
         res.status(201).json({status: "Success", data: data});
     }).catch((err) => {
-        res.status(400).json({status: "fail", data: "err"});
+        res.status(400).json({status: "fail", data: err});
     })
 }
 
@@ -52,7 +52,7 @@ exports.UpdateToDo=(req,res)=>{
     ToDoListModel.updateOne({_id:_id},{$set:PostBody},{upsert:true}).then((data) => {
         res.status(201).json({status: "Success", data: data});
     }).catch((err) => {
-        res.status(400).json({status: "fail", data: "err"});
+        res.status(400).json({status: "fail", data: err});
     })
 
 }
@@ -72,7 +72,7 @@ exports.UpdateStatusToDo=(req,res)=>{
     ToDoListModel.updateOne({_id:_id},{$set:PostBody},{upsert:true}).then((data) => {
         res.status(201).json({status: "Success", data: data});
     }).catch((err) => {
-        res.status(400).json({status: "fail", data: "err"});
+        res.status(400).json({status: "fail", data: err});
     })
 }
 
@@ -84,7 +84,7 @@ exports.RemoveToDo=(req,res)=>{
     ToDoListModel.deleteOne({_id:_id}).then((data) => {
         res.status(201).json({status: "Success", data: data});
     }).catch((err) => {
-        res.status(400).json({status: "fail", data: "err"});
+        res.status(400).json({status: "fail", data: err});
     })
 }
 
@@ -95,7 +95,7 @@ exports.SelectToDoByStatus=(req,res)=>{
     ToDoListModel.find({UserName:UserName,TodoStatus:TodoStatus}).then((data) => {
         res.status(201).json({status: "Success", data: data});
     }).catch((err) => {
-        res.status(400).json({status: "fail", data: "err"});
+        res.status(400).json({status: "fail", data: err});
     })
 }
 
@@ -108,6 +108,6 @@ exports.SelectToDoByDate=(req,res)=>{
     ToDoListModel.find({UserName:UserName,TodoCreateDate:{$gte:new Date(FormDate),$lte:new Date(ToDate)}}).then((data) => {
         res.status(201).json({status: "Success", data: data});
     }).catch((err) => {
-        res.status(400).json({status: "fail", data: "err"});
+        res.status(400).json({status: "fail", data: err});
     })
 }
